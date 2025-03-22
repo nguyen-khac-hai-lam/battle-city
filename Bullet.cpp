@@ -1,15 +1,16 @@
 #include "Bullet.h"
-
+#include "Tank.h"
+#include <iostream>
 Bullet::Bullet(int startX, int startY, int dir, Map* gameMap) {
     x = startX;
     y = startY;
     direction = dir;
-    speed = 5;
+    speed = 1;
     active = true;
     map = gameMap; // Lưu con trỏ bản đồ
 }
 
-void Bullet::update() {
+void Bullet::update(Tank& tank, bool& running) {
     if (!active) return;
 
     // Di chuyển đạn
@@ -35,6 +36,12 @@ void Bullet::update() {
     // Kiểm tra nếu viên đạn ra khỏi màn hình thì vô hiệu hóa
     if (x < 0 || x > MAP_COLS * TILE_SIZE || y < 0 || y > MAP_ROWS * TILE_SIZE) {
         active = false;
+    }
+    if (!tank.isDestroyed && tank.isHitByBullet(x, y)) {  // Kiểm tra kỹ tên biến
+        tank.destroy(); // Làm xe tăng biến mất
+        running = false; // Kết thúc game
+        active = false; // Xóa đạn
+        std::cout << "Game Over! Tank was hit!" << std::endl;
     }
 }
 

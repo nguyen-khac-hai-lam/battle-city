@@ -14,9 +14,9 @@ Map::Map() {
             } else {
                 int randomValue = std::rand() % 100;
                 if (randomValue < 10) grid[i][j] = TileType::BRICK;
-                else if (randomValue < 25) grid[i][j] = TileType::WATER;
+                else if (randomValue < 20) grid[i][j] = TileType::WATER;
                 else if (randomValue < 30) grid[i][j] = TileType::GRASS;
-                else grid[i][j] = TileType::EMPTY;
+                else grid[i][j] = TileType::EMPTY; // Phần còn lại là EMPTY
             }
         }
     }
@@ -32,7 +32,7 @@ Map::Map() {
     }
 }
 
-void Map::render(SDL_Renderer* renderer, SDL_Texture* steelTexture, SDL_Texture* brickTexture, SDL_Texture* grassTexture, SDL_Texture* waterTexture, SDL_Texture* tankTexture) {
+void Map::render(SDL_Renderer* renderer, SDL_Texture* steelTexture, SDL_Texture* brickTexture, SDL_Texture* grassTexture, SDL_Texture* waterTexture,SDL_Texture* emptyTexture) {
     for (int i = 0; i < MAP_ROWS; i++) {
         for (int j = 0; j < MAP_COLS; j++) {
             SDL_Rect tileRect = { j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE };
@@ -41,12 +41,11 @@ void Map::render(SDL_Renderer* renderer, SDL_Texture* steelTexture, SDL_Texture*
                 case BRICK: SDL_RenderCopy(renderer, brickTexture, nullptr, &tileRect); break;
                 case GRASS: SDL_RenderCopy(renderer, grassTexture, nullptr, &tileRect); break;
                 case WATER: SDL_RenderCopy(renderer, waterTexture, nullptr, &tileRect); break;
+                case EMPTY: SDL_RenderCopy(renderer, emptyTexture, nullptr, &tileRect); break;
                 default: break;
             }
         }
     }
 
     // Vẽ xe tăng
-    SDL_Rect tankRect = { tankPosition.second * TILE_SIZE, tankPosition.first * TILE_SIZE, TILE_SIZE, TILE_SIZE };
-    SDL_RenderCopy(renderer, tankTexture, nullptr, &tankRect);
 }

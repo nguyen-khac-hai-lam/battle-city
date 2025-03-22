@@ -43,11 +43,11 @@
 		<Unit filename="Tank.cpp" />
 		<Unit filename="Tank.h" />
 		<Unit filename="TextureManager.h" />
-		<Unit filename="enemy.cpp" />
-		<Unit filename="enemy.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="map.cpp" />
 		<Unit filename="map.h" />
+		<Unit filename="menu.cpp" />
+		<Unit filename="menu.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

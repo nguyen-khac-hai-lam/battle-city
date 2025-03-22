@@ -2,10 +2,10 @@
 #define TANK_H
 
 #include <SDL2/SDL.h>
-#include <vector>
-#include "Map.h"
-#include "Bullet.h"
 
+#include "Map.h"
+
+class Bullet;
 class Tank {
 public:
     int x, y;
@@ -24,11 +24,14 @@ public:
 
     void move(int dx, int dy, const std::vector<std::vector<TileType>>& map);
     void shoot(Map* map); // Bắn đạn
-    void updateBullets();
+    void updateBullets(Tank& enemyTank, bool& running);
     void render(SDL_Renderer* renderer);
+    bool isHitByBullet(int bulletX, int bulletY);
+    void destroy();
+    bool isDestroyed = false; // Biến trạng thái xe tăng
 };
-
-
+#include "Bullet.h"
+#include <vector>
 #endif // TANK_H
 
 

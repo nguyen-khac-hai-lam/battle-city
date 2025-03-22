@@ -52,9 +52,9 @@ void Tank::shoot(Map* map) {
     bullets.push_back(Bullet(bulletX, bulletY, direction, map));
 }
 
-void Tank::updateBullets() {
+void Tank::updateBullets(Tank& enemyTank, bool& running) {
     for (auto& bullet : bullets) {
-        bullet.update();
+        bullet.update(enemyTank, running);
     }
     bullets.erase(std::remove_if(bullets.begin(), bullets.end(),
         [](Bullet& b) { return !b.active; }), bullets.end());
@@ -73,4 +73,18 @@ void Tank::render(SDL_Renderer* renderer) {
     for (auto& bullet : bullets) {
         bullet.render(renderer);
     }
+}
+bool Tank::isHitByBullet(int bulletX, int bulletY) {
+    if (isDestroyed) return false; // Nếu xe tăng đã bị hủy, bỏ qua kiểm tra
+
+    SDL_Rect tankRect = { x, y, width, height };
+    SDL_Rect bulletRect = { bulletX, bulletY, 5, 5 }; // Kích thước viên đạn
+
+    return SDL_HasIntersection(&tankRect, &bulletRect);
+}
+
+void Tank::destroy() {
+    isDestroyed = true;
+    x = -100; // Di chuyển xe tăng ra khỏi màn hình
+    y = -100;
 }

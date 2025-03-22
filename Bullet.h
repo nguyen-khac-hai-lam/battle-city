@@ -5,13 +5,13 @@
 #include <SDL2/SDL.h>
 
 #include "Map.h"
-
+#include "Tank.h"
 class Bullet {
 public:
     Bullet(int startX, int startY, int dir, Map* map);
-    void update();
     void render(SDL_Renderer* renderer);
     bool active;
+    void update(Tank& tank, bool& running);
 private:
     int x, y, direction, speed;
     Map* map; // Thêm con trỏ đến bản đồ
