@@ -11,7 +11,7 @@ public:
     Bullet(int startX, int startY, int dir, Map* map);
     void render(SDL_Renderer* renderer);
     bool active;
-    void update(Tank& tank, bool& running);
+    void update(Tank& enemyTank, Tank& playerTank, bool& running);
 private:
     int x, y, direction, speed;
     Map* map; // Thêm con trỏ đến bản đồ

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1742549701 source:c:\game\battle city\main.cpp
+1743220339 source:c:\game\battle city\main.cpp
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 	<iostream>
@@ -8,21 +8,21 @@
 	"TextureManager.h"
 	"menu.h"
 
-1742545126 c:\game\battle city\map.h
+1742722217 c:\game\battle city\map.h
 	<vector>
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 
-1742545170 source:c:\game\battle city\map.cpp
+1743216604 source:c:\game\battle city\map.cpp
 	"Map.h"
 	<cstdlib>
 	<ctime>
 
-1742549598 source:c:\game\battle city\tank.cpp
+1743220531 source:c:\game\battle city\tank.cpp
 	"Tank.h"
 	<algorithm>
 
-1742549598 c:\game\battle city\tank.h
+1743220055 c:\game\battle city\tank.h
 	<SDL2/SDL.h>
 	"Map.h"
 	"Bullet.h"
@@ -33,12 +33,12 @@
 	<SDL2/SDL_image.h>
 	<iostream>
 
-1742549395 source:c:\game\battle city\bullet.cpp
+1743219144 source:c:\game\battle city\bullet.cpp
 	"Bullet.h"
 	"Tank.h"
 	<iostream>
 
-1742549395 c:\game\battle city\bullet.h
+1742615355 c:\game\battle city\bullet.h
 	<SDL2/SDL.h>
 	"Map.h"
 	"Tank.h"

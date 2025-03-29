@@ -29,6 +29,8 @@ public:
 
     Map();
     void render(SDL_Renderer* renderer, SDL_Texture* steelTexture, SDL_Texture* brickTexture, SDL_Texture* grassTexture, SDL_Texture* waterTexture,SDL_Texture* emptyTexture);
+    void reset();
+
 };
 
 #endif // MAP_H
