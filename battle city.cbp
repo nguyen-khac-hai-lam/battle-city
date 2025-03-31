@@ -19,6 +19,7 @@
 					<Add library="SDL2main" />
 					<Add library="SDL2" />
 					<Add library="SDL2_image" />
+					<Add library="SDL2_mixer" />
 				</Linker>
 			</Target>
 			<Target title="Release">
